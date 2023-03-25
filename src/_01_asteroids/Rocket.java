@@ -19,6 +19,7 @@ public class Rocket implements GameControlScene {
 	boolean fire = false;
 	boolean restart = false;
 
+	
 	/*
 	 * 2. A constructor does not have a return type and must be named the same as
 	 * the class i.e. public Rocket(){
@@ -50,7 +51,6 @@ public class Rocket implements GameControlScene {
 	 * constructor.
 	 */
 
-	@Override
 	public void draw(Graphics g) {
 		Graphics2D graphics2D = (Graphics2D) g;
 		graphics2D.rotate(Math.toRadians(angle), x, y);
@@ -90,7 +90,6 @@ public class Rocket implements GameControlScene {
 
 	}
 
-	@Override
 	public void keyPressed(KeyEvent e) {
 		switch (e.getKeyCode()) {
 		case KeyEvent.VK_D:
@@ -116,7 +115,6 @@ public class Rocket implements GameControlScene {
 		}
 	}
 
-	@Override
 	public void keyReleased(KeyEvent e) {
 		switch (e.getKeyCode()) {
 		case KeyEvent.VK_D:
@@ -133,5 +131,13 @@ public class Rocket implements GameControlScene {
 			break;
 		default:
 		}
+	}
+	
+	public Rocket() {
+		x = AsteroidsGame.WIDTH/2;
+		y = AsteroidsGame.HEIGHT/2;
+		size = 10;
+		
+		collisionBox = new Rectangle(x - size/2, y - size/2, size, size);
 	}
 }
